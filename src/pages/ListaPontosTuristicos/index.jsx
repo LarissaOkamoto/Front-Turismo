@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./styles.module.css";
 import CardPontoTuristico from "../../componentes/CardPontoTuristico";
+import logo from "../../assets/logo.png"
+import { Search } from "lucide-react";
 
 function ListaPontosTuristicos() {
 
@@ -43,7 +45,6 @@ function ListaPontosTuristicos() {
         }
     }
 
-
     async function buscarPontoTuristico() {
 
         setCarregando(true);
@@ -52,7 +53,7 @@ function ListaPontosTuristicos() {
         try {
 
             const resposta = await fetch(
-                `http://localhost:8080/pontosTuristicos/pesquisa?nome=${nome}`
+                `http://localhost:8080/pontosTuristicos/pesquisa?nome=${encodeURIComponent(nome)}`
             );
 
             if (!resposta.ok) {
@@ -82,16 +83,41 @@ function ListaPontosTuristicos() {
 
     return (
         <div className={style.container}>
+            <div className={style.navbar}>
+                            <img src={logo} alt="Logo" className={style.logo}/>
+                            <div className={style.buttonsNavbar}>
+                                <button onClick={() => navigate("/")} className={style.buttonNavbar}>
+                                    Início
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        document
+                                            .getElementById("sobre")
+                                            .scrollIntoView({ behavior: "smooth" });
+                                    }}
+                                    className={style.buttonNavbar}
+                                >
+                                    Sobre
+                                </button>
+                                <button onClick={() => navigateCadastro("/cadastro")} className={style.buttonNavbar}>
+                                    Cadastrar
+                                </button>
+                                <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.buttonNavbarAtivo}>
+                                    Destinos
+                                </button>
+                            </div>
+            </div>
 
+            <div className={style.header}>                    
             <button 
                 onClick={() => navigate("/")}
                 className={style.button}
             >
                 Voltar para Página Inicial
             </button>
+            </div>                        
 
-
-            <div className={style.pesquisa}>
+            <div className={style.barraPesquisa}>
 
                 <input
                     type="text"
@@ -99,18 +125,18 @@ function ListaPontosTuristicos() {
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
                 />
-
                 <button
                     onClick={buscarPontoTuristico}
                     disabled={carregando}
-                    className={style.button}
+                    className={style.buttonPesquisa}
                 >
-                    Pesquisar
+                    <Search size={20} className={style.search}/>
                 </button>
 
             </div>
 
 
+            <div className={style.destinos}>
             {erro && <p>Erro: {erro}</p>}
 
             {carregando && <p>Carregando...</p>}
@@ -124,6 +150,7 @@ function ListaPontosTuristicos() {
                     />
                 ))}
             </ul>
+            </div>
 
         </div>
     );

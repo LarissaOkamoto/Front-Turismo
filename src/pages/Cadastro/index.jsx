@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import style from './styles.module.css'
+import logo from "../../assets/logo.png"
 
 function Cadastro(){
     const [nome, setNome] = useState("");
@@ -12,29 +13,77 @@ function Cadastro(){
     const [mensagem, setMensagem] = useState("");
 
     const navigate = useNavigate();
-    const navigateListaPontosTuristicos = useNavigate();
 
-    async function cadastrar(){
+    async function cadastrar(event){
+
+        event.preventDefault();
+
+        try{
         const resposta = await fetch(
             "http://localhost:8080/pontosTuristicos",
                 {
                     method: "POST",
                     headers: {"Content-type": "application/json"},
-                    body: JSON.stringify({nome: nome}, {cidade: cidade}, {descricao: descricao}, {classificacao: classificacao}, {gastoMedio: gastoMedio}, {curtidas: curtidas})
+                    body: JSON.stringify({
+                        nome: nome, 
+                        cidade: cidade,
+                        descricao: descricao,
+                        classificacao: classificacao,
+                        gastoMedio: Number(gastoMedio),
+                        imagem: imagem})
                 }
         );
 
-        if(!resposta.status(200)){
-            setMensagem("Erro" + resposta.status);
+        if(!resposta.ok){
+
+            if (resposta.status === 400) {
+                setMensagem("Preencha todos os campos corretamente.");
+            } else if (resposta.status === 409) {
+                setMensagem("Já existe um ponto turístico com esse nome.");
+            } else {
+                setMensagem("Erro ao cadastrar ponto turístico.");
+            }
             return;
         }
 
         const dados = await resposta.json();
-        setMensagem(dados.mensagem);
+        
+        console.log("Cadastrado: dados");
+
+        setMensagem("Ponto turístico cadastrado com sucesso!");
+
+    } catch (e) {
+        console.error("Erro na requisição: ",e);
+        setMensagem("Erro ao cadastrar ponto turístico");
+        }
     }
 
     return(
         <div>
+            <div className={style.navbar}>
+                            <img src={logo} alt="Logo" className={style.logo}/>
+                            <div className={style.buttonsNavbar}>
+                                <button onClick={() => navigate("/")} className={style.buttonNavbar}>
+                                    Início
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        document
+                                            .getElementById("sobre")
+                                            .scrollIntoView({ behavior: "smooth" });
+                                    }}
+                                    className={style.buttonNavbar}
+                                >
+                                    Sobre
+                                </button>
+                                <button onClick={() => navigateCadastro("/cadastro")} className={style.buttonNavbarAtivo}>
+                                    Cadastrar
+                                </button>
+                                <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.buttonNavbar}>
+                                    Destinos
+                                </button>
+                            </div>
+            </div>
             <div className={style.header}>
                 <button 
                     onClick={() => navigate("/")}
@@ -43,7 +92,7 @@ function Cadastro(){
                     Voltar para Página Inicial
                 </button>
                 <button 
-                    onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")}
+                    onClick={() => navigate("/pontos-turisticos")}
                     className={style.button}
                 >
                     Ver todos os Pontos Turísticos

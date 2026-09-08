@@ -1,38 +1,94 @@
-.container{
-    background-color: lightgoldenrodyellow;
-    margin: 15px 0;
-    border: orange;
-    border-radius: 12px;
+.card{
+    width: 100%;
+    max-width: 380px;
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(14, 58, 70, 0.10);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-*{
-    background-color: #FDFBF7;
-    color:#1A303A;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(14, 58, 70, 0.18);
 }
 
-.container{
-    flex-direction: row;
-    text-align: center;
-    margin: 15px 100px;
+
+.foto{
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
 }
 
-.button{
-    border-radius: 10px;
-    height: 40px;
-
-    margin: 10px 10px;
-    background-color: #FDFBF7;
-    color: #008094;
+.foto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 0;
 }
 
-.pesquisa{
-    background-color: #FDFBF7;
-    color: #008094;
+
+.header{
+    padding: 20px 22px 0 22px;
 }
 
-.cadastro{
-    background-color: #FDFBF7;
-    color: #008094;
-    border-color: #F29E4C;
+.header h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: #0E3A46;
+    margin: 0;
+}
+
+.header p{
+    font-family: 'Lato', sans-serif;
+    color: #2E7D73;
+    margin-top: 3px;
+    font-size: 0.9rem;
+}
+
+.body{
+    padding: 15px 22px 22px 22px;
+    font-family: 'Lato', sans-serif;
+    color: #444;
+}
+
+.body > p:first-child{
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.curtidas{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.buttonCurtidas{
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0E3A46;
+    background-color: white;
+    border: 1px solid #D9B98F;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.buttonCurtidas:hover{
+    background-color: #D9B98F;
+    transform: scale(1.08);
+}
+
+.curtidas p{
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
 }

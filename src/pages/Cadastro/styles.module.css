@@ -1,31 +1,83 @@
-*{
-    background-color: #FDFBF7;
-    color:#1A303A;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-.container{
+.navbar {
+    width: 100%;
+    display: flex;
     flex-direction: row;
-    text-align: center;
-    margin: 15px 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #FDFBF7;
 }
 
-.button{
-    border-radius: 10px;
-    height: 40px;
-
-    margin: 10px 10px;
-    background-color: #FDFBF7;
-    color: #008094;
+.logo {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
 }
 
-.pesquisa{
-    background-color: #FDFBF7;
-    color: #008094;
+.buttonNavbar {
+    font-size: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #0E3A46;
+    border: none;
+    margin-left: 25px;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.cadastro{
-    background-color: #FDFBF7;
-    color: #008094;
-    border-color: #F29E4C;
+.buttonNavbar:hover {
+    color: #D9B98F;
+}
+
+.buttonNavbarAtivo {
+    font-size: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #D9B98F;
+    border: none;
+    margin-left: 25px;
+    padding: 10px 5px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 55px;
+}
+
+.button {
+    min-height: 40px;
+    padding: 0 20px;
+    border: 2px;
+    border-radius: 20px;
+    background-color: #D9B98F;
+    color: #0E3A46;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 15px 0px;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: #D9B98F;
+    border-radius: 15px;
+    margin: 20px 55px;
+    font-size: 20px;
+}
+
+.body input{
+    height: 60px;
+    border: 2px solid;
+    border-color: #D9B98F;
+    border-radius: 20px;
+    margin: 10px 0px;
+    font-size: 18px;
+    color: #6CB6C3;
 }

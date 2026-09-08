@@ -1,25 +1,63 @@
-function CardPontoTuristico({nome, descricao, cidade, classificacao, gastoMedio, imagem, curtidas}){
+import { RouterProvider } from "react-router-dom";
+import './CardPontoTuristico.module.css'
+import { routes } from "../routes";
+import style from './CardPontoTuristico.module.css'
+import { Heart } from "lucide-react";
+import { useState } from "react";
+
+
+function CardPontoTuristico({pontoTuristico}){
+
+    const{
+        nome, 
+        descricao, 
+        cidade, 
+        classificacao,
+        gastoMedio,
+        imagem
+    } = pontoTuristico;
     
     function Curtidas(){
             const [curtidas, setCurtidas] = useState(0);
     
             return(
-                <button onClick={() => setCurtidas (curtidas + 1)}>
-                    Curtidas: {curtidas}
-                </button>
+                <div className={style.curtidas}>
+                    <button
+                        onClick={() => setCurtidas(curtidas + 1)}
+                        className={style.buttonCurtidas}
+                    >
+                        <Heart size={20} />
+                    </button>
+                    <br/>
+                    <p>{curtidas} Curtidas</p>
+                </div>
             );
     }
 
     return (
-        <div>
-            <h4>{nome}</h4>
-            <p>{descricao}</p>
-            <p>Cidade: {cidade}</p>
-            <p>Classificação: {classificacao}</p>
-            <p>Gasto médio: R$ {gastoMedio}</p>
-            <p>{imagem}</p>
-            <p>Curtidas: {curtidas}</p>
-        </div>
+            <div className={style.card}>
+                <div className={style.header}>
+                    <h2>{nome}</h2>
+                    <p>{cidade}</p>
+                </div>
+                <br/>
+                <div className={style.foto}>
+                {imagem && (
+                    <img
+                        src={imagem}
+                        alt={`Ponto turístico ${nome}`}
+                    />
+                )}
+                </div>
+                <div className={style.body}>
+                    <p>{descricao}</p>
+                    <br/>
+                    <p><b>Classificação:</b> {classificacao}</p>
+                    <p><b>Gasto médio:</b> R$ {Number(gastoMedio).toFixed(2)}</p>
+                    <br/>
+                    <Curtidas/>
+                </div>
+            </div>
     )
 }
 

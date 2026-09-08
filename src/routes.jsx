@@ -14,5 +14,9 @@ export const routes = createBrowserRouter([
     }, {
         path:'/pontos-turisticos',
         element: <ListaPontosTuristicos/>
+    }, {
+        path:'/CardPontoTuristico/:id',
+        element: <ListaPontosTuristicos/>,
+        errorElement:<div>Error</div>
     }
 ])

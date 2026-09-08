@@ -1,40 +1,300 @@
-*{
-    background-color: #FDFBF7;
-    color:#1A303A;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    box-sizing: border-box;
 }
 
-.container{
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FDFBF7;
+    color: #1A303A;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+button,
+input {
+    font-family: 'Lato', sans-serif;
+}
+
+
+.container {
+    width: 100%;
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
     flex-direction: row;
-    text-align: center;
-    margin: 15px 100px;
-}
-
-.button{
-    border-radius: 10px;
-    height: 40px;
-
-    margin: 10px 10px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
     background-color: #FDFBF7;
-    color: #008094;
 }
 
-.pesquisa{
-    background-color: #FDFBF7;
-    color: #008094;
+.logo {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
 }
 
-.cadastro{
-    background-color: #FDFBF7;
-    color: #008094;
-    border-color: #F29E4C;
+.buttonNavbar {
+    font-size: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #0E3A46;
+    border: none;
+    margin-left: 25px;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-/*
-.cadastro{
+.buttonNavbar:hover {
+    color: #D9B98F;
+}
+
+.buttonNavbarAtivo {
+    font-size: 20px;
+    font-weight: 500;
+    background-color: transparent;
+    color: #D9B98F;
+    border: none;
+    margin-left: 25px;
+    padding: 10px 5px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+}
+
+.banner,
+.cadastro {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.banner img,
+.cadastro img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+
+.textoBanner{
+    position: absolute;
+    top: 50%;
+    left: 55px;
+    transform: translateY(-50%);
+    width: 600px;
+    max-width: 80%;
+    z-index: 2;
+    background-color: transparent;
+}
+
+.textoBanner h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+    background-color: transparent;
+}
+
+.textoBanner p {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: white;
+    margin-bottom: 28px;
+    background-color: transparent;
+}
+
+
+.barraPesquisa {
+    display: flex;
+    width: 500px;
+    max-width: 100%;
+    height: 50px;
+    background-color: transparent;
+}
+
+.barraPesquisa input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 16px;
+    font-size: 16px;
+    background-color: white;
+    color: #1A303A;
+    border: 2px solid #6CB6C4;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    outline: none;
+}
+
+.barraPesquisa input::placeholder {
+    color: #777;
+}
+
+.barraPesquisa input:focus {
+    border-color: #008094;
+}
+
+.barraPesquisa button {
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #008094;
-    color: #EFEA5A;
-    color: #F29E4C;
-    color: #E2A170;
+    color: white;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    transition: 0.2s;
 }
-*/
+
+.barraPesquisa button .search{
+    color: white;
+    background-color: transparent;
+}
+
+.barraPesquisa button:hover {
+    background-color: #006F80;
+}
+
+.sobre{
+    display: flex;
+    flex-direction:row;
+    margin: 16px 0px;
+}
+
+.sobre h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #D9B98F;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
+    color: #0E3A46;
+    margin: 55px 55px 55px 55px;
+    background-color: transparent;
+}
+
+.sobre p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #0E3A46;
+    background-color: transparent;
+    margin: 55px 55px 55px 55px;
+}
+
+.sobre img{
+    width: 800px;
+    height: auto;
+    border-radius: 10px;
+    border-color: #D9B98F;
+    border-width: 2px;
+    margin: 0px 55px 0px 0px;
+}
+
+.button {
+    min-height: 40px;
+    padding: 0 20px;
+    border: 2px;
+    border-radius: 20px;
+    background-color: #D9B98F;
+    color: #0E3A46;
+    cursor: pointer;
+    transition: 0.2s;
+    margin: 15px 0px;
+}
+
+.button:hover {
+    background-color: #F29E4C;
+    color: white;
+}
+
+
+.pesquisa {
+    background-color: #FDFBF7;
+    color: #008094;
+    margin: 55px 55px 55px 55px;
+}
+
+.cadastroTexto{
+    position: absolute;
+    top: 50%;
+    right: 55px;
+    transform: translateY(-50%);
+    width: 600px;
+    max-width: 80%;
+    z-index: 2;
+    background-color: transparent;
+
+    text-align: right;
+}
+
+.cadastroTexto h1 {
+    color: white;
+    font-size: 50px;
+    margin-bottom: 16px;
+}
+
+.cadastroTexto p {
+    color: white;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.divisor{
+    border: none;
+    height: 2px;
+    background-color: #D9B98F;
+    width: 100%;
+    margin: 16px 0;
+}
+
+.footer{
+    background-color: #008094;
+    height: 150px;
+    padding: 20px 20px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.footerBody{
+    margin: 25px 55px;
+    color: #FDFBF7;
+}
+
+.footer img{
+    display: flex;
+    justify-content: end;
+}
