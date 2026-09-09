@@ -141,7 +141,7 @@ function Cadastro(){
                 Gasto médio:
                 <input  
                     type="number"
-                    placeholder="Digite o gasto médio"
+                    placeholder="Digite o gasto médio em R$"
                     value={gastoMedio}
                     onChange={(e) => setGastoMedio(e.target.value)}
                 />
