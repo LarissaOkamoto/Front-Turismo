@@ -1,21 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "./styles.module.css";
 import CardPontoTuristico from "../../componentes/CardPontoTuristico";
+import style from "./styles.module.css";
 import logo from "../../assets/logo.png"
 import { Search } from "lucide-react";
-
 
 function ListaPontosTuristicos() {
 
     const navigate = useNavigate();
 
-
     const [pontosTuristicos, setPontosTuristicos] = useState([]);
     const [carregando, setCarregando] = useState(false);
     const [erro, setErro] = useState(null);
     const [nome, setNome] = useState("");
-
 
     async function buscar() {
 

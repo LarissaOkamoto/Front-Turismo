@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import style from './styles.module.css'
-import Cadastro from '../Cadastro';
-import ListaPontosTuristicos from '../ListaPontosTuristicos';
 import banner from "../../assets/banner.png"
 import logo from "../../assets/logo.png"
 import cadastrar_banner from "../../assets/cadastrar_banner.png";
@@ -12,7 +10,22 @@ import { Search } from "lucide-react";
 
 function Home() {
 
+    const [nomePesquisa, setNomePesquisa] = useState("");
+
     const navigate = useNavigate();
+
+    function pesquisarDestino(event) {
+    event.preventDefault();
+
+    if (nomePesquisa.trim() === "") {
+        navigate("/pontos-turisticos");
+        return;
+    }
+
+    navigate(
+        `/pontos-turisticos?nome=${encodeURIComponent(nomePesquisa)}`
+    );
+}
 
   return(
         <div className={style.container}>
@@ -49,8 +62,10 @@ function Home() {
                         <input
                             type="text"
                             placeholder="Busque por destino..."
+                            value={nomePesquisa}
+                            onChange={(e) => setNomePesquisa(e.target.value)}
                         />
-                        <button>
+                        <button onClick={pesquisarDestino}>
                             <Search size={20} className={style.search}/>
                         </button>
                     </div>

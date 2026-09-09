@@ -1,6 +1,3 @@
-import { RouterProvider } from "react-router-dom";
-import './CardPontoTuristico.module.css'
-import { routes } from "../routes";
 import style from './CardPontoTuristico.module.css'
 import { Heart } from "lucide-react";
 import { useState } from "react";

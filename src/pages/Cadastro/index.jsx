@@ -49,7 +49,7 @@ function Cadastro(){
 
         const dados = await resposta.json();
         
-        console.log("Cadastrado: dados");
+        console.log("Cadastrado:", dados);
 
         setMensagem("Ponto turístico cadastrado com sucesso!");
 
@@ -58,6 +58,7 @@ function Cadastro(){
         setMensagem("Erro ao cadastrar ponto turístico");
         }
     }
+
 
     return(
         <div className={style.container}>
