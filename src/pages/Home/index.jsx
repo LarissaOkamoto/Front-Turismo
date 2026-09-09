@@ -12,8 +12,7 @@ import { Search } from "lucide-react";
 
 function Home() {
 
-    const navigateCadastro = useNavigate();
-    const navigateListaPontosTuristicos = useNavigate();
+    const navigate = useNavigate();
 
   return(
         <div className={style.container}>
@@ -33,10 +32,10 @@ function Home() {
                     >
                         Sobre
                     </button>
-                    <button onClick={() => navigateCadastro("/cadastro")} className={style.buttonNavbar}>
+                    <button onClick={() => navigate('/cadastro')} className={style.buttonNavbar}>
                         Cadastrar
                     </button>
-                    <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.buttonNavbar}>
+                    <button onClick={() => navigate('/pontos-turisticos')} className={style.buttonNavbar}>
                         Destinos
                     </button>
                 </div>
@@ -70,7 +69,7 @@ function Home() {
                     <br/><br/>
                     <b>Explore novos lugares. Compartilhe descobertas. Inspire novas experiências.</b>
                     <br/><br/>
-                    <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.button}>
+                    <button onClick={() => navigate('/pontos-turisticos')} className={style.button}>
                         Ver destinos
                     </button>
                 </p>
@@ -82,7 +81,7 @@ function Home() {
                 <div className={style.cadastroTexto}>
                     <h1>Compartilhe suas experiências</h1>
                     <p>Cadastre os pontos turísticos que você visitou e ajude outras pessoas a viverem novas histórias. </p>
-                    <button onClick={() => navigateCadastro("/cadastro")} className={style.button}>
+                    <button onClick={() => navigate('/cadastro')} className={style.button}>
                         Cadastrar agora
                     </button>
                 </div>
@@ -93,7 +92,7 @@ function Home() {
             </div>
             <div className={style.footer}>
                 <div className={style.footerBody}>
-                <h3>Larissa Lie Okamoto</h3>
+                <h3>Nome</h3>
                 <br/>
                 <p>Análise e Desenvolvimento de Sistemas - 2ADSA</p>
                 <b/>

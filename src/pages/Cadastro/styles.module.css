@@ -1,3 +1,8 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar {
     width: 100%;
     display: flex;
@@ -63,13 +68,19 @@
 }
 
 .body{
+    width: 100%;
+    max-width: 75%;
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(14, 58, 70, 0.10);
+    transition: 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-color: #D9B98F;
-    border-radius: 15px;
     margin: 20px 55px;
-    font-size: 20px;
+    align-self: center;
 }
 
 .body input{

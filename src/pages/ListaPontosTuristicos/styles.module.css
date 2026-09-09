@@ -99,7 +99,7 @@
     color: #1A303A;
     border: 2px solid #D9B98F;
     border-right: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 15px 0 0 15px;
     outline: none;
 }
 
@@ -120,7 +120,7 @@
     background-color: #D9B98F;
     color: white;
     border: none;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 15px 15px 0;
     cursor: pointer;
     transition: 0.2s;
 }

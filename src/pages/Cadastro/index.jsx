@@ -14,6 +14,7 @@ function Cadastro(){
 
     const navigate = useNavigate();
 
+
     async function cadastrar(event){
 
         event.preventDefault();
@@ -59,40 +60,36 @@ function Cadastro(){
     }
 
     return(
-        <div>
+        <div className={style.container}>
             <div className={style.navbar}>
                             <img src={logo} alt="Logo" className={style.logo}/>
                             <div className={style.buttonsNavbar}>
-                                <button onClick={() => navigate("/")} className={style.buttonNavbar}>
+                                <button onClick={() => navigate('/')} className={style.buttonNavbar}>
                                     Início
                                 </button>
                                 <button
-                                    onClick={() => {
-                                        document
-                                            .getElementById("sobre")
-                                            .scrollIntoView({ behavior: "smooth" });
-                                    }}
+                                    onClick={() => navigate('/#sobre')}
                                     className={style.buttonNavbar}
                                 >
                                     Sobre
                                 </button>
-                                <button onClick={() => navigateCadastro("/cadastro")} className={style.buttonNavbarAtivo}>
+                                <button onClick={() => navigate('/cadastro')} className={style.buttonNavbarAtivo}>
                                     Cadastrar
                                 </button>
-                                <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.buttonNavbar}>
+                                <button onClick={() => navigate('/pontos-turisticos')} className={style.buttonNavbar}>
                                     Destinos
                                 </button>
                             </div>
             </div>
             <div className={style.header}>
                 <button 
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate('/')}
                     className={style.button}
                 >
                     Voltar para Página Inicial
                 </button>
                 <button 
-                    onClick={() => navigate("/pontos-turisticos")}
+                    onClick={() => navigate('/pontos-turisticos')}
                     className={style.button}
                 >
                     Ver todos os Pontos Turísticos

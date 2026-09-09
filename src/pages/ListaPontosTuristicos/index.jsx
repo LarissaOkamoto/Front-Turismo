@@ -5,9 +5,11 @@ import CardPontoTuristico from "../../componentes/CardPontoTuristico";
 import logo from "../../assets/logo.png"
 import { Search } from "lucide-react";
 
+
 function ListaPontosTuristicos() {
 
     const navigate = useNavigate();
+
 
     const [pontosTuristicos, setPontosTuristicos] = useState([]);
     const [carregando, setCarregando] = useState(false);
@@ -86,23 +88,19 @@ function ListaPontosTuristicos() {
             <div className={style.navbar}>
                             <img src={logo} alt="Logo" className={style.logo}/>
                             <div className={style.buttonsNavbar}>
-                                <button onClick={() => navigate("/")} className={style.buttonNavbar}>
+                                <button onClick={() => navigate('/')} className={style.buttonNavbar}>
                                     Início
                                 </button>
                                 <button
-                                    onClick={() => {
-                                        document
-                                            .getElementById("sobre")
-                                            .scrollIntoView({ behavior: "smooth" });
-                                    }}
+                                    onClick={() => navigate('/#sobre')}
                                     className={style.buttonNavbar}
                                 >
                                     Sobre
                                 </button>
-                                <button onClick={() => navigateCadastro("/cadastro")} className={style.buttonNavbar}>
+                                <button onClick={() => navigate('/cadastro')} className={style.buttonNavbar}>
                                     Cadastrar
                                 </button>
-                                <button onClick={() => navigateListaPontosTuristicos("/pontos-turisticos")} className={style.buttonNavbarAtivo}>
+                                <button onClick={() => navigate('/pontos-turisticos')} className={style.buttonNavbarAtivo}>
                                     Destinos
                                 </button>
                             </div>
@@ -110,7 +108,7 @@ function ListaPontosTuristicos() {
 
             <div className={style.header}>                    
             <button 
-                onClick={() => navigate("/")}
+                onClick={() => navigate('/')}
                 className={style.button}
             >
                 Voltar para Página Inicial
