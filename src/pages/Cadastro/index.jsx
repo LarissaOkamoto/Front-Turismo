@@ -8,7 +8,7 @@ function Cadastro(){
     const [cidade, setCidade] = useState("");
     const [descricao, setDescricao] = useState("");
     const [classificacao, setClassificacao] = useState("");
-    const [gastoMedio, setGastoMedio] = useState(0.0);
+    const [gastoMedio, setGastoMedio] = useState("");
     const [imagem, setImagem] = useState("");
     const [mensagem, setMensagem] = useState("");
 
@@ -38,11 +38,11 @@ function Cadastro(){
         if(!resposta.ok){
 
             if (resposta.status === 400) {
-                setMensagem("Preencha todos os campos corretamente.");
+                alert("Preencha todos os campos corretamente.");
             } else if (resposta.status === 409) {
-                setMensagem("Já existe um ponto turístico com esse nome.");
+                alert("Já existe um ponto turístico com esse nome.");
             } else {
-                setMensagem("Erro ao cadastrar ponto turístico.");
+                alert("Erro ao cadastrar ponto turístico.");
             }
             return;
         }
@@ -51,11 +51,18 @@ function Cadastro(){
         
         console.log("Cadastrado:", dados);
 
-        setMensagem("Ponto turístico cadastrado com sucesso!");
+        alert("Ponto turístico cadastrado com sucesso!");
+
+        setNome("");
+        setCidade("");
+        setDescricao("");
+        setClassificacao("");
+        setGastoMedio("");
+        setImagem("");
 
     } catch (e) {
         console.error("Erro na requisição: ",e);
-        setMensagem("Erro ao cadastrar ponto turístico");
+        alert("Erro ao cadastrar ponto turístico");
         }
     }
 
@@ -97,6 +104,8 @@ function Cadastro(){
                 </button>
             </div>
             <div className={style.body}>
+                <h2>Adicione um novo destino ao nosso Bucketlist</h2>
+                <br/>
                 Nome:
                 <input  
                     type="text"
@@ -151,7 +160,6 @@ function Cadastro(){
                 >
                     Adicionar
                 </button>
-                <p>{mensagem}</p>
             </div>
         </div>
     )
